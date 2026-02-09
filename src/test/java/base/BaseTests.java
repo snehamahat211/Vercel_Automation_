@@ -16,7 +16,8 @@ public class BaseTests {
         driver=new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://authorized-partner.vercel.app/");
-//        homepage = new Homepage(driver);
+        homepage = new Homepage(driver);
+        homepage.clickLogin();
     }
 
 }
