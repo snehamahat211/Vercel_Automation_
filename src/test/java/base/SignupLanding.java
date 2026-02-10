@@ -2,6 +2,7 @@ package base;
 
 import org.testng.annotations.Test;
 import signup.Agreementpage;
+import signup.SignupOne;
 
 public class SignupLanding extends BaseTests{
 
@@ -9,7 +10,10 @@ public class SignupLanding extends BaseTests{
     public void SignupLanding(){
         Agreementpage agreement=homepage.clickstarted();
         agreement.ClickOnAgreement();
-        agreement.clickOnSignup();
+        SignupOne signupo=agreement.clickOnSignup();
+        signupo.fillinfo("Sneha");
+
+
 
 
     }
