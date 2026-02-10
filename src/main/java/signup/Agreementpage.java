@@ -9,29 +9,33 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class Agreementpage {
+public class Agreementpage{
     public WebDriver driver;
-    private WebDriverWait wait;
-    private By agreeCheckbox =By.id("remember");
+    public WebDriverWait wait;
+
+    private By agree=By.cssSelector("#remember");
+    private By continueButton = By.cssSelector("a[href*='register?step=setup'] button");
 
 
-    public Agreementpage(WebDriver driver){
-        this.driver=driver;
-        this.wait=new WebDriverWait(driver, Duration.ofSeconds(20));
+
+    public Agreementpage(WebDriver driver) {
+        this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
-
-    public void clickagreement(boolean check){
-        WebElement Checkbox=wait.until(ExpectedConditions.elementToBeClickable(agreeCheckbox));
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);",Checkbox);
-        if (Checkbox.isSelected() !=check){
-            Checkbox.click();
-        }
-
-
-
+    public void ClickOnAgreement(){
+        WebElement btn=wait.until(ExpectedConditions.elementToBeClickable(agree));
+        btn.click();
 
 
     }
 
+    public SignupOne clickOnSignup()
+    {
+
+        WebElement button=wait.until(ExpectedConditions.elementToBeClickable(continueButton));
+        button.click();
+
+        return new SignupOne(driver);
+    }
 
 }
