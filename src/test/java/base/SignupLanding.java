@@ -11,7 +11,7 @@ public class SignupLanding extends BaseTests{
         Agreementpage agreement=homepage.clickstarted();
         agreement.ClickOnAgreement();
         SignupOne signupo=agreement.clickOnSignup();
-        signupo.fillinfo("Sneha");
+        signupo.fillinfo("Sneha","Mahat","user@gmail.com");
 
 
 

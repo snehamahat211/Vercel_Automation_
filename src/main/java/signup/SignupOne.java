@@ -11,6 +11,10 @@ import java.time.Duration;
 
 public class SignupOne {
     private By name=By.id("«r0»-form-item");
+    private By lastname=By.id("«r1»-form-item");
+    private By email=By.id("«r2»-form-item");
+    private By phone=By.id("«r4»-form-item");
+
     public WebDriver driver;
     public WebDriverWait wait;
     public SignupOne(WebDriver driver){
@@ -28,15 +32,26 @@ public class SignupOne {
         input.sendKeys(text);
     }
 
-    public void entername(String user) {
-        type(name, user);
+    public void entername(String nameo) {
+        type(name, nameo);
+    }
+
+    public void enterlastname(String ln) {
+        type(lastname, ln);
+    }
+
+    public void enteremail(String mail) {
+        type(email, mail);
     }
 
 
 
-    public void fillinfo(String user) {
-        entername(user);
+    public void fillinfo(String nameo,String ln,String mail) {
+        entername(nameo);
+        enterlastname(ln);
+        enteremail(mail);
     }
+
 
 
 //    public void name(String nameone){
