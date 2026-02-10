@@ -4,10 +4,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 import signup.Homepage;
+import signup.Loginpage;
 
 public class BaseTests {
     private WebDriver driver;
     protected Homepage homepage;
+    protected Loginpage loginpage;
 
     @Test
 
@@ -17,7 +19,10 @@ public class BaseTests {
         driver.manage().window().maximize();
         driver.get("https://authorized-partner.vercel.app/");
         homepage = new Homepage(driver);
-//        homepage.clickLogin();
+        homepage.clickLogin();
+        loginpage=new Loginpage(driver);
+        loginpage.clicksignin();
+
     }
 
 }
