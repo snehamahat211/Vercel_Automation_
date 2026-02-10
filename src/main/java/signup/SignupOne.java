@@ -13,7 +13,10 @@ public class SignupOne {
     private By name=By.id("«r0»-form-item");
     private By lastname=By.id("«r1»-form-item");
     private By email=By.id("«r2»-form-item");
-    private By phone=By.id("«r4»-form-item");
+    private By phonenm=By.id("«r4»-form-item");
+    private By password=By.cssSelector("input[name='password']");
+    private By confirmp=By.cssSelector("input[name='confirmPassword']");
+    private By next=By.xpath("//button[text()='Next']");
 
     public WebDriver driver;
     public WebDriverWait wait;
@@ -44,19 +47,35 @@ public class SignupOne {
         type(email, mail);
     }
 
+    public void enterphone(String mail) {
+        type(phonenm, mail);
+    }
 
-
-    public void fillinfo(String nameo,String ln,String mail) {
-        entername(nameo);
-        enterlastname(ln);
-        enteremail(mail);
+    public void enterpassword(String pass) {
+        type(password, pass);
+    }
+    public void confirmpassword(String cpass) {
+        type(confirmp, cpass);
     }
 
 
 
-//    public void name(String nameone){
-//        wait.until(ExpectedConditions.elementToBeClickable(name)).sendKeys(nameone);
-//    }
+    public void fillinfo(String nameo,String ln,String mail,String phone,String pass,String cpass) {
+        entername(nameo);
+        enterlastname(ln);
+        enteremail(mail);
+        enterphone(phone);
+        enterpassword(pass);
+        confirmpassword(cpass);
+    }
+
+    public OTP clicknext(){
+        WebElement loginElement=wait.until(ExpectedConditions.elementToBeClickable(next));
+        loginElement.click();
+        return new OTP(driver);
+
+
+    }
 
 
 
