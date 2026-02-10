@@ -17,7 +17,7 @@ public class BaseTests {
         driver.manage().window().maximize();
         driver.get("https://authorized-partner.vercel.app/");
         homepage = new Homepage(driver);
-        homepage.clickLogin();
+//        homepage.clickLogin();
     }
 
 }
