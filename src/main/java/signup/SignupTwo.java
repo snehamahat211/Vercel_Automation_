@@ -53,4 +53,18 @@ public class SignupTwo {
         type(operation, op);
     }
 
-}
+
+    public void fillform(String nameo,String role,String mail,String site,String ress,String op){
+        nameofagency(nameo);
+        roleofagency(role);
+        emailaddress(mail);
+        website(site);
+        add(ress);
+        operate(op);
+    }
+
+    public void clicknextone() {
+
+        WebElement button = wait.until(ExpectedConditions.elementToBeClickable(nextone));
+        button.click();
+}}
