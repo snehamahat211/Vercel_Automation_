@@ -1,10 +1,7 @@
 package base;
 
 import org.testng.annotations.Test;
-import signup.Agreementpage;
-import signup.OTP;
-import signup.SignupOne;
-import signup.SignupTwo;
+import signup.*;
 
 public class SignupLanding extends BaseTests{
 
@@ -18,7 +15,9 @@ public class SignupLanding extends BaseTests{
         otp.testMailExample();
         SignupTwo signupt=otp.clickverify();
         signupt.fillform("ICT Tcch","HR","icttech@gmail.com","google.com","thimi");
-        signupt.clicknextone();
+        SignupThree signthree=signupt.clicknextone();
+        signthree.fillformtwo("20","Software Development","90");
+        signthree.clicknexttwo();
 
 
 

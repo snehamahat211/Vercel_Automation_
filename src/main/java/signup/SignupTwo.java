@@ -70,8 +70,9 @@ public class SignupTwo {
         operate();
     }
 
-    public void clicknextone() {
+    public SignupThree clicknextone() {
 
         WebElement button = wait.until(ExpectedConditions.elementToBeClickable(nextone));
         button.click();
+        return new SignupThree(driver);
 }}

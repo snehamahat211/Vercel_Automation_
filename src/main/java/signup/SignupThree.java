@@ -4,15 +4,17 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class SignupThree {
     private WebDriver driver;
     private WebDriverWait wait;
-    private By experience=By.id("«r7t»-form-item");
-    private By  years=By.id("«r7v»-form-item");
-    private By numofstu=By.id("«r7v»-form-item");
-    private By focusarea=By.id("«r80»-form-item");
-    private By successmetric=By.id("«r81»-form-item");
-    private By service=By.id("«r83»-form-item");
+    private By experience=By.cssSelector("button[role='combobox'][aria-controls*='radix']");
+    private By  years=By.cssSelector("button[id$='-form-item']");
+    private By numofstu=By.cssSelector("input[name='number_of_students_recruited_annually'][placeholder='Enter an approximate number.'][type='number']");
+    private By focusarea=By.xpath("//input[@name='focus_area']");
+    private By successmetric=By.xpath("//input[@name='success_metrics']");
+    private By service=By.cssSelector("button[role='checkbox'][id$='-form-item']");
     private By nexttwo=By.xpath("//button[ text()='Next']");
 
 
@@ -20,6 +22,7 @@ public class SignupThree {
 
     public SignupThree(WebDriver driver) {
         this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     private WebElement waituntilvisible(By locator) {
@@ -46,8 +49,8 @@ public class SignupThree {
         driver.findElement(years).click();
     }
 
-    public void numofstud(String role) {
-        type(numofstu, role);
+    public void numofstud(String num) {
+        type(numofstu, num);
     }
 
     public void focus(String area){
@@ -62,14 +65,17 @@ public class SignupThree {
     {
         click(service);
     }
+    public void fillformtwo(String num,String area,String metric){
+        exp();
+        numofstud(num);;
+        focus(area);
+        successmetric(metric);
+        service();
+    }
+    public void clicknexttwo()
+    {
+        WebElement button=wait.until(ExpectedConditions.elementToBeClickable(nexttwo));
+        button.click();
 
-
-
-
-
-
-
-
-
-
+    }
 }
