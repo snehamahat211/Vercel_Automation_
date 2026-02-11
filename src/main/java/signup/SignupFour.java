@@ -15,7 +15,7 @@ public class SignupFour {
     private By pref=By.xpath(" //label[normalize-space()='Universities']/preceding-sibling::button");
     private By uploadone=By.xpath("//input[@type='file']");
     private By uploadtwo=By.xpath("//input[@type='file']");
-    private By submit=By.xpath("//input[@type='submit']");
+    private By submit=By.xpath("//button[normalize-space()='Submit']");
 
     public SignupFour(WebDriver driver){
         this.driver=driver;
@@ -53,11 +53,11 @@ public class SignupFour {
     }
 
     public void uploadDocument() {
-        driver. findElement(uploadone). sendKeys("C:\\Users\\user\\Downloads\\Cover Letter.pdf");
+        driver. findElement(uploadone). sendKeys("C:\\Users\\user\\OneDrive\\Pictures\\Screenshots\\homepage.png");
     }
 
     public void uploadDocumenttwo() {
-        driver. findElement(uploadtwo). sendKeys("C:\\Users\\user\\Downloads\\CV-Sneha-Mahat.pdf");
+        driver. findElement(uploadtwo). sendKeys("C:\\Users\\user\\Downloads\\Cover Letter.pdf");
     }
 
     public void fillFormFour() {
