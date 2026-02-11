@@ -69,7 +69,8 @@ public class SignupOne {
         confirmpassword(cpass);
     }
 
-    public OTP clicknext(){
+    public OTP clicknext()
+    {
         WebElement loginElement=wait.until(ExpectedConditions.elementToBeClickable(next));
         loginElement.click();
         return new OTP(driver);
