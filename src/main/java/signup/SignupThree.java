@@ -11,6 +11,7 @@ public class SignupThree {
     private WebDriver driver;
     private WebDriverWait wait;
     private By experience=By.cssSelector("button[role='combobox'][aria-controls*='radix']");
+    private By  years=By.xpath("//button[./span[text()='2 years']]");
     private By numofstu=By.cssSelector("input[name='number_of_students_recruited_annually'][placeholder='Enter an approximate number.'][type='number']");
     private By focusarea=By.xpath("//input[@name='focus_area']");
     private By successmetric=By.xpath("//input[@name='success_metrics']");
@@ -45,17 +46,21 @@ public class SignupThree {
     }
     public void exp()
     {
-        WebElement dropdown = wait. until(
-                ExpectedConditions. elementToBeClickable(experience)
+        WebElement dropdown = wait.until(
+                ExpectedConditions.elementToBeClickable(experience)
         );
 
-        new Actions(driver). moveToElement(dropdown). click(). perform();
+        new Actions(driver)
+                .moveToElement(dropdown)
+                .click()
+                .perform();
 
-        wait. until(ExpectedConditions. presenceOfElementLocated(
-                By. xpath("//[text()='2 years']")
+        wait.until(ExpectedConditions.presenceOfElementLocated(
+                By.xpath("//*[text()='2 years']")
         ));
 
-        driver. findElement(By. xpath("//[text()='2 years']")). click();
+
+        driver.findElement(By.xpath("//*[text()='2 years']")).click();
 
 
 
