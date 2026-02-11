@@ -6,6 +6,8 @@ import com.mailosaur.models.MessageSearchParams;
 import com.mailosaur.models.SearchCriteria;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import com.mailosaur.models.Message;
@@ -21,9 +23,10 @@ public class OTP {
     public WebDriverWait wait;
     String apikey="FfNdYwSt71EsY0VIYFF0caDOhN089BWb";
     String serverId="bftp0kad";
-    String serverDomain="";
+
 
     private By codebox=By.cssSelector("input[data-input-otp='true']");
+    private By verify=By.cssSelector("button[type='submit'].primary-btn");
     private String emailid;
 
     public OTP(WebDriver driver,String emailid) {
@@ -77,4 +80,11 @@ public class OTP {
         System.out.println("otp: "+otp);
 
         driver.findElement(codebox).sendKeys(otp);
-    }}
+    }
+    public void clickverify(){
+        WebElement loginElement=wait.until(ExpectedConditions.elementToBeClickable(verify));
+        loginElement.click();
+
+    }
+}
+

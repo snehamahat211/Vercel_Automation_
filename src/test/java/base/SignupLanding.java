@@ -15,6 +15,7 @@ public class SignupLanding extends BaseTests{
         signupo.fillinfo("Sneha","Mahat","9843435183","Sneha@123","Sneha@123");
         OTP otp=signupo.clicknext();
         otp.testMailExample();
+        otp.clickverify();
 
 
 
