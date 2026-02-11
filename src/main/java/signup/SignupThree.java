@@ -1,6 +1,7 @@
 package signup;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -10,7 +11,6 @@ public class SignupThree {
     private WebDriver driver;
     private WebDriverWait wait;
     private By experience=By.cssSelector("button[role='combobox'][aria-controls*='radix']");
-    private By  years=By.cssSelector("button[id$='-form-item']");
     private By numofstu=By.cssSelector("input[name='number_of_students_recruited_annually'][placeholder='Enter an approximate number.'][type='number']");
     private By focusarea=By.xpath("//input[@name='focus_area']");
     private By successmetric=By.xpath("//input[@name='success_metrics']");
@@ -45,8 +45,20 @@ public class SignupThree {
     }
     public void exp()
     {
-        click(experience);
-        driver.findElement(years).click();
+        WebElement dropdown = wait. until(
+                ExpectedConditions. elementToBeClickable(experience)
+        );
+
+        new Actions(driver). moveToElement(dropdown). click(). perform();
+
+        wait. until(ExpectedConditions. presenceOfElementLocated(
+                By. xpath("//[text()='2 years']")
+        ));
+
+        driver. findElement(By. xpath("//[text()='2 years']")). click();
+
+
+
     }
 
     public void numofstud(String num) {
