@@ -12,7 +12,7 @@ public class SignupFour {
 
     private By registration =By.cssSelector("input[name='business_registration_number'][placeholder*='registration number']");
     private By dropdown=By.cssSelector("button[aria-controls^='radix-'][role='combobox']");
-    private By pref=By.id("«r1q1»-form-item");
+    private By pref=By.cssSelector("button[data-state='checked']");
     private By uploadone=By.xpath("//div[./div/span[contains(text(), 'Upload a file')]][1]");
     private By uploadtwo=By.xpath("//div[./div/span[contains(text(), 'Upload a file')]][2]");
 
@@ -49,6 +49,16 @@ public class SignupFour {
     public void Prefer(){
         click(pref);
     }
+
+    public void uploadDocument() {
+        driver. findElement(uploadone). sendKeys("\"C:\\Users\\user\\Downloads\\CV-Sneha-Mahat.pdf\"");
+    }
+
+    public void uploadDocumenttwo() {
+        driver. findElement(uploadtwo). sendKeys("\"C:\\Users\\user\\Downloads\\CV-Sneha-Mahat.pdf\"");
+    }
+
+
 
 
 
