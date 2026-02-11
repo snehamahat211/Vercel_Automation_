@@ -81,9 +81,10 @@ public class OTP {
 
         driver.findElement(codebox).sendKeys(otp);
     }
-    public void clickverify(){
+    public SignupTwo clickverify(){
         WebElement loginElement=wait.until(ExpectedConditions.elementToBeClickable(verify));
         loginElement.click();
+        return  new SignupTwo(driver);
 
     }
 }

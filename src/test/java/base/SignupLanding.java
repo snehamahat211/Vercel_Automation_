@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 import signup.Agreementpage;
 import signup.OTP;
 import signup.SignupOne;
+import signup.SignupTwo;
 
 public class SignupLanding extends BaseTests{
 
@@ -15,7 +16,10 @@ public class SignupLanding extends BaseTests{
         signupo.fillinfo("Sneha","Mahat","Sneha@123","Sneha@123");
         OTP otp=signupo.clicknext();
         otp.testMailExample();
-        otp.clickverify();
+        SignupTwo signupt=otp.clickverify();
+        signupt.fillform("ICT Tcch","HR","icttech@gmail.com","google.com","softwares and banking");
+        signupt.clicknextone();
+
 
 
 
