@@ -8,8 +8,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.UUID;
 
 public class SignupOne {
+
+    private String generatedEmail;
+
     private By name=By.id("«r0»-form-item");
     private By lastname=By.id("«r1»-form-item");
     private By email=By.id("«r2»-form-item");
@@ -34,6 +38,9 @@ public class SignupOne {
         input.sendKeys(Keys.CONTROL + "a", Keys.BACK_SPACE);
         input.sendKeys(text);
     }
+    private String generateRandomEmail(){
+        return "user"+ UUID.randomUUID().toString().substring(0,8)+"@bftp0kad.mailosaur.net";
+    }
 
     public void entername(String nameo) {
         type(name, nameo);
@@ -43,8 +50,10 @@ public class SignupOne {
         type(lastname, ln);
     }
 
-    public void enteremail(String mail) {
-        type(email, mail);
+    public void enteremail() {
+
+        generatedEmail=generateRandomEmail();
+        type(email,generatedEmail);
     }
 
     public void enterphone(String mail) {
@@ -60,20 +69,23 @@ public class SignupOne {
 
 
 
-    public void fillinfo(String nameo,String ln,String mail,String phone,String pass,String cpass) {
+    public void fillinfo(String nameo,String ln,String phone,String pass,String cpass) {
         entername(nameo);
         enterlastname(ln);
-        enteremail(mail);
+        enteremail();
         enterphone(phone);
         enterpassword(pass);
         confirmpassword(cpass);
+    }
+    public String getGeneratedEmail() {
+        return generatedEmail;
     }
 
     public OTP clicknext()
     {
         WebElement loginElement=wait.until(ExpectedConditions.elementToBeClickable(next));
         loginElement.click();
-        return new OTP(driver);
+        return new OTP(driver,generatedEmail);
 
 
     }

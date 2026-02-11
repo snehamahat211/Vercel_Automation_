@@ -12,8 +12,10 @@ public class SignupLanding extends BaseTests{
         Agreementpage agreement=homepage.clickstarted();
         agreement.ClickOnAgreement();
         SignupOne signupo=agreement.clickOnSignup();
-        signupo.fillinfo("Sneha","Mahat","anythin@bftp0kad.mailosaur.net","9843435183","Sneha@123","Sneha@123");
-        signupo.clicknext();
+        signupo.fillinfo("Sneha","Mahat","9843435183","Sneha@123","Sneha@123");
+        OTP otp=signupo.clicknext();
+        otp.testMailExample();
+
 
 
 
