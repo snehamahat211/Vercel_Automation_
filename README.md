@@ -6,17 +6,23 @@
  
  Essential resources for executing this endeavor include: an appropriate setting and necessary software. :
 
--Language: Java (JDK 25 ).
+##### Language:
+Java (JDK 25 ).
 
--Framework: TestNG (Testing Framework).
+##### Framework: 
+TestNG (Testing Framework).
 
--Automation Tool: Selenium WebDriver (Selenium 4),Mailosaur.
+##### Automation Tool: 
+Selenium WebDriver (Selenium 4),Mailosaur.
 
--Crafting tool: Apache Maven (via pom. ).
+##### Crafting tool:
+Apache Maven (via pom. ).
 
--Driver: Chrome (Version 144) using ChromeDriver.
+##### Driver: 
+Chrome (Version 144) using ChromeDriver.
 
--Version Control: Git/GitHub for source code management.
+##### Version Control: 
+Git/GitHub for source code management.
 
 
 ### 3. Core Features & Task Requirements
@@ -56,9 +62,17 @@ As per the task the script must:
 -Project setup using Maven and TestNG ensures compatibility with CI/CD platforms such as Jenkins or GitHub Actions for seamless automation of builds and tests.
 
 
+### 7. Test Passed
+
+#### 1.final test passed
+![Output](img.png)
+
+
+
 
 
  
+
 
 
 
