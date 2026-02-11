@@ -12,7 +12,7 @@ public class SignupLanding extends BaseTests{
         Agreementpage agreement=homepage.clickstarted();
         agreement.ClickOnAgreement();
         SignupOne signupo=agreement.clickOnSignup();
-        signupo.fillinfo("Sneha","Mahat","9843435183","Sneha@123","Sneha@123");
+        signupo.fillinfo("Sneha","Mahat","Sneha@123","Sneha@123");
         OTP otp=signupo.clicknext();
         otp.testMailExample();
         otp.clickverify();

@@ -13,6 +13,7 @@ import java.util.UUID;
 public class SignupOne {
 
     private String generatedEmail;
+    private String generatednum;
 
     private By name=By.id("«r0»-form-item");
     private By lastname=By.id("«r1»-form-item");
@@ -42,6 +43,10 @@ public class SignupOne {
         return "user"+ UUID.randomUUID().toString().substring(0,8)+"@bftp0kad.mailosaur.net";
     }
 
+    private String generateRandomnum(){
+        return "98"+ (long)(Math.random()*100000000L);
+    }
+
     public void entername(String nameo) {
         type(name, nameo);
     }
@@ -56,8 +61,9 @@ public class SignupOne {
         type(email,generatedEmail);
     }
 
-    public void enterphone(String mail) {
-        type(phonenm, mail);
+    public void enterphone() {
+        generatednum=generateRandomnum();
+        type(phonenm,generatednum);
     }
 
     public void enterpassword(String pass) {
@@ -69,16 +75,13 @@ public class SignupOne {
 
 
 
-    public void fillinfo(String nameo,String ln,String phone,String pass,String cpass) {
+    public void fillinfo(String nameo,String ln,String pass,String cpass) {
         entername(nameo);
         enterlastname(ln);
         enteremail();
-        enterphone(phone);
+        enterphone();
         enterpassword(pass);
         confirmpassword(cpass);
-    }
-    public String getGeneratedEmail() {
-        return generatedEmail;
     }
 
     public OTP clicknext()
