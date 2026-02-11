@@ -5,7 +5,8 @@
  ### 2. Environment & Prerequisites
 Essential resources for executing this endeavor include: an appropriate setting and necessary software. :
 
-Language: Java (JDK 25 ).
+-Language: Java (JDK 25 ).
+
 -Framework: TestNG (Testing Framework).
 
 -Automation Tool: Selenium WebDriver (Selenium 4),Mailosaur.
@@ -17,6 +18,10 @@ Language: Java (JDK 25 ).
 -Version Control: Git/GitHub for source code management.
 
 
+###3.
+
+
  
+
 
 
