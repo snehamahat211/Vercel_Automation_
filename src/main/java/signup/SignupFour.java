@@ -12,9 +12,10 @@ public class SignupFour {
 
     private By registration =By.cssSelector("input[name='business_registration_number'][placeholder*='registration number']");
     private By dropdown=By.cssSelector("button[aria-controls^='radix-'][role='combobox']");
-    private By pref=By.cssSelector("button[data-state='checked']");
-    private By uploadone=By.xpath("//div[./div/span[contains(text(), 'Upload a file')]][1]");
-    private By uploadtwo=By.xpath("//div[./div/span[contains(text(), 'Upload a file')]][2]");
+    private By pref=By.xpath(" //label[normalize-space()='Universities']/preceding-sibling::button");
+    private By uploadone=By.xpath("//input[@type='file']");
+    private By uploadtwo=By.xpath("//input[@type='file']");
+    private By submit=By.xpath("//input[@type='submit']");
 
     public SignupFour(WebDriver driver){
         this.driver=driver;
@@ -48,14 +49,30 @@ public class SignupFour {
 
     public void Prefer(){
         click(pref);
+
     }
 
     public void uploadDocument() {
-        driver. findElement(uploadone). sendKeys("\"C:\\Users\\user\\Downloads\\CV-Sneha-Mahat.pdf\"");
+        driver. findElement(uploadone). sendKeys("C:\\Users\\user\\Downloads\\Cover Letter.pdf");
     }
 
     public void uploadDocumenttwo() {
-        driver. findElement(uploadtwo). sendKeys("\"C:\\Users\\user\\Downloads\\CV-Sneha-Mahat.pdf\"");
+        driver. findElement(uploadtwo). sendKeys("C:\\Users\\user\\Downloads\\CV-Sneha-Mahat.pdf");
+    }
+
+    public void fillFormFour() {
+        Regnum();
+        Dropdown();
+        Prefer();
+        uploadDocument();
+        uploadDocumenttwo();
+    }
+    public void clicknexttwo()
+    {
+        WebElement button=wait.until(ExpectedConditions.elementToBeClickable(submit));
+        button.click();
+
+
     }
 
 

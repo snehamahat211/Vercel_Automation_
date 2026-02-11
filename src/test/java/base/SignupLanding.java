@@ -18,9 +18,9 @@ public class SignupLanding extends BaseTests{
         SignupThree signthree=signupt.clicknextone();
         signthree.fillformtwo("20","Software Development","90");
         SignupFour signupFour=signthree.clicknexttwo();
-        signupFour.Regnum();
-        signupFour.Dropdown();
-        signupFour.Prefer();
+        signupFour.fillFormFour();
+        signupFour.clicknexttwo();
+
 
 
 

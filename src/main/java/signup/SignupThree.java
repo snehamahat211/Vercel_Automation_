@@ -23,7 +23,7 @@ public class SignupThree {
 
     public SignupThree(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
 
     private WebElement waituntilvisible(By locator) {
