@@ -10,8 +10,8 @@ public class SignupFour {
     private WebDriver driver;
     private WebDriverWait wait;
 
-    private By registration =By.id("«r1pt»-form-item");
-    private By dropdown=By.id("«r1pu»-form-item");
+    private By registration =By.cssSelector("input[name='business_registration_number'][placeholder*='registration number']");
+    private By dropdown=By.cssSelector("button[aria-controls^='radix-'][role='combobox']");
     private By pref=By.id("«r1q1»-form-item");
     private By uploadone=By.xpath("//div[./div/span[contains(text(), 'Upload a file')]][1]");
     private By uploadtwo=By.xpath("//div[./div/span[contains(text(), 'Upload a file')]][2]");
@@ -36,8 +36,21 @@ public class SignupFour {
 
     public void Regnum(){
         WebElement button =wait.until(ExpectedConditions.elementToBeClickable(registration));
+        button.sendKeys(Keys.CONTROL + "a", Keys.BACK_SPACE);
         button.sendKeys("12345");
     }
+
+    public void Dropdown(){
+            click(dropdown);
+            driver. findElement(By. xpath("//span[text()='United States of America']")). click();
+
+    }
+
+    public void Prefer(){
+        click(pref);
+    }
+
+
 
 
 

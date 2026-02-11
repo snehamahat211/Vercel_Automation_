@@ -89,10 +89,11 @@ public class SignupThree {
         successmetric(metric);
         service();
     }
-    public void clicknexttwo()
+    public SignupFour clicknexttwo()
     {
         WebElement button=wait.until(ExpectedConditions.elementToBeClickable(nexttwo));
         button.click();
+        return new SignupFour(driver);
 
     }
 }
