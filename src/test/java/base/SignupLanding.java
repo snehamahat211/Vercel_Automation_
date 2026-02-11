@@ -17,7 +17,7 @@ public class SignupLanding extends BaseTests{
         OTP otp=signupo.clicknext();
         otp.testMailExample();
         SignupTwo signupt=otp.clickverify();
-        signupt.fillform("ICT Tcch","HR","icttech@gmail.com","google.com","softwares and banking");
+        signupt.fillform("ICT Tcch","HR","icttech@gmail.com","google.com","thimi");
         signupt.clicknextone();
 
 

@@ -1,9 +1,6 @@
 package signup;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -18,14 +15,14 @@ public class SignupTwo {
     private By emailadd=By.id("«r80»-form-item");
     private By web=By.id("«r81»-form-item");
     private By address=By.id("«r82»-form-item");
-    private By operation=By.id("«r82»-form-item");
-    private By nextone=By.cssSelector("button[type='submit'and text()='Next']");
+    private By operation=By.cssSelector("button[aria-haspopup='dialog'][role='combobox']");
+    private By nextone=By.xpath("//button[ text()='Next']");
 
 
 
     public SignupTwo(WebDriver driver) {
         this.driver=driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(30));
     }
     private WebElement waittosee(By locator) {
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
@@ -35,6 +32,15 @@ public class SignupTwo {
         WebElement input = waittosee(locator);
         input.sendKeys(Keys.CONTROL + "a", Keys.BACK_SPACE);
         input.sendKeys(text);
+    }
+
+    private void click(By locator) {
+        WebElement element = waittosee(locator);
+        try {
+            element.click();
+        } catch (Exception e) {
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
+        }
     }
     public void nameofagency(String nameo) {
         type(agencyname, nameo);
@@ -49,18 +55,19 @@ public class SignupTwo {
         type(web, site);
     }
     public void add(String ress) {type(address,ress);}
-    public void operate(String op) {
-        type(operation, op);
+    public void operate() {
+        click(operation);
+        driver.findElement(By.xpath("//span[text()='Canada']")).click();
     }
 
 
-    public void fillform(String nameo,String role,String mail,String site,String ress,String op){
+    public void fillform(String nameo,String role,String mail,String site,String ress){
         nameofagency(nameo);
         roleofagency(role);
         emailaddress(mail);
         website(site);
         add(ress);
-        operate(op);
+        operate();
     }
 
     public void clicknextone() {
